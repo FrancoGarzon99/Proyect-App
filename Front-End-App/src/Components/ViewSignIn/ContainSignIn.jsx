@@ -4,7 +4,7 @@ import SignIn from './Form/SignIn';
 import WelcomeBackground from './BackgroundImg/Image';
 
 // Component
-const ViewLogin = () => {
+const ContainSignIn = () => {
   // Render
   return (
     <>
@@ -19,4 +19,4 @@ const ViewLogin = () => {
     </>
   );
 };
-export default ViewLogin;
+export default ContainSignIn;
