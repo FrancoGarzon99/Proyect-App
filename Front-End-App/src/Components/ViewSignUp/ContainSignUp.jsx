@@ -9,12 +9,12 @@ const ContainSignUp = () => {
   return (
     <>
       <Grid templateColumns="repeat(2, 1fr)" gap={1}>
-        {/* Image Left */}
-        <Box w="100%" h="100vh">
+        {/* Form Left */}
+        <SignUp />
+        {/* Image Rigth */}
+        <Box w="100%" h="100vh" bg="tomato">
           <CreateUserBackground />
         </Box>
-        {/* Form Rigth */}
-        <SignUp />
       </Grid>
     </>
   );
