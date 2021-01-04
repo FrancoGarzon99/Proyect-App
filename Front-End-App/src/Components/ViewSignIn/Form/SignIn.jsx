@@ -11,11 +11,26 @@ import {
   InputGroup,
 } from '@chakra-ui/core';
 import { ArrowForwardIcon, EmailIcon, UnlockIcon, ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+
+// Component
 const SignIn = () => {
+  // FormData
+  const [formData, setFormData] = React.useState({});
+  const onForm = (e) => {
+    e.preventDefault();
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // View Password
   const [showHiden, setShowHiden] = React.useState(false);
   const viewPass = () => {
     setShowHiden(!showHiden);
   };
+
+  // Render
   return (
     <Center>
       <Stack
@@ -27,9 +42,14 @@ const SignIn = () => {
         flexDirection="column"
         alignItems="center"
       >
-        <Text fontSize="3xl">BIENVENIDO!</Text>
+        <Text
+          fontSize="3xl"
+          style={{ fontFamily: 'poppins', fontWeight: '700', letterSpacing: '3px' }}
+        >
+          ¡BIENVENIDO!
+        </Text>
         <Box w="100%">
-          <form>
+          <form onSubmit={onForm}>
             <Stack spacing={5}>
               <InputGroup>
                 <InputLeftElement
@@ -37,7 +57,14 @@ const SignIn = () => {
                   children={<EmailIcon color="gray.300" />}
                   p={6}
                 />
-                <Input type="phone" placeholder="Email" size="lg" boxShadow="base" />
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  size="lg"
+                  boxShadow="base"
+                  onChange={onForm}
+                />
               </InputGroup>
               <InputGroup>
                 <InputLeftElement
@@ -46,10 +73,12 @@ const SignIn = () => {
                   p={6}
                 />
                 <Input
+                  name="password"
                   type={showHiden ? 'text' : 'password'}
                   placeholder="Contraseña"
                   boxShadow="base"
                   size="lg"
+                  onChange={onForm}
                 />
                 <InputRightElement p={6}>
                   <Button h="1.7rem" size="md" onClick={viewPass} variant="ghost">

@@ -10,7 +10,7 @@ import {
 import { BiUserCircle, BiEnvelope, BiShow, BiHide, BiLockAlt } from 'react-icons/bi';
 
 // Component
-const Inputs = () => {
+const Inputs = ({ onForm }) => {
   // state ShowHiden
   const [showHiden, setShowHiden] = React.useState(false);
   //   Fn
@@ -27,7 +27,14 @@ const Inputs = () => {
           children={<Icon as={BiUserCircle} color="gray.300" />}
           p={6}
         />
-        <Input type="text" placeholder="Usuario" size="lg" boxShadow="base" />
+        <Input
+          type="text"
+          name="usuario"
+          placeholder="Usuario"
+          size="lg"
+          boxShadow="base"
+          onChange={onForm}
+        />
       </InputGroup>
       <InputGroup>
         <InputLeftElement
@@ -35,7 +42,15 @@ const Inputs = () => {
           children={<Icon as={BiEnvelope} color="gray.300" />}
           p={6}
         />
-        <Input type="email" placeholder="Email" size="lg" boxShadow="base" isRequired />
+        <Input
+          type="email"
+          name="email"
+          placeholder="Email"
+          size="lg"
+          boxShadow="base"
+          isRequired
+          onChange={onForm}
+        />
       </InputGroup>
 
       <InputGroup>
@@ -49,6 +64,8 @@ const Inputs = () => {
           placeholder="Contraseña"
           boxShadow="base"
           size="lg"
+          name="password"
+          onChange={onForm}
           isRequired
         />
       </InputGroup>
@@ -63,6 +80,8 @@ const Inputs = () => {
           placeholder="Confimar contraseña"
           boxShadow="base"
           size="lg"
+          name="passwordConfirm"
+          onChange={onForm}
           isRequired
         />
         <InputRightElement p={6}>

@@ -5,6 +5,16 @@ import ButtonSubmit from './ButtonSubmit';
 
 // Component
 const SignUp = () => {
+  // Form Data
+  const [formData, setFormData] = React.useState({});
+  const onForm = (e) => {
+    e.preventDefault();
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   // Render
   return (
     <Center>
@@ -18,16 +28,30 @@ const SignUp = () => {
         alignItems="center"
       >
         {/* Title */}
-        <Text fontSize="3xl">Se parte de nuestro equipo! </Text>
+        <Text
+          fontSize="3xl"
+          style={{
+            fontFamily: 'poppins',
+            fontWeight: '700',
+            letterSpacing: '3px',
+            textAlign: ' center',
+          }}
+        >
+          Súmate a nuestro equipo
+        </Text>
         <Box w="100%">
-          <form>
+          <form onSubmit={onForm}>
             {/* Inputs Form */}
             <Stack spacing={5}>
-              <Inputs />
+              <Inputs onForm={onForm} />
             </Stack>
             {/* Submit Button */}
             <ButtonSubmit />
           </form>
+          <p>{formData.usuario}</p>
+          <p>{formData.email}</p>
+          <p>{formData.password}</p>
+          <p>{formData.passwordConfirm}</p>
         </Box>
       </Stack>
     </Center>
