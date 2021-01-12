@@ -5,7 +5,6 @@ function Home() {
   return (
     <div className="Home">
       <header className="Home-header">
-        <h5>Fran Dev 99</h5>
         <Box>
           <Link to="/iniciar-session">
             <Button colorScheme="teal" variant="outline" m="10px">
