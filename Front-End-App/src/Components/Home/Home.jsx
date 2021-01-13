@@ -8,7 +8,7 @@ function Home() {
         <Box>
           <Link to="/iniciar-session">
             <Button colorScheme="teal" variant="outline" m="10px">
-              Iniciar Sesion
+              Iniciar Sesión
             </Button>
           </Link>
           <Link to="/registrarme">
