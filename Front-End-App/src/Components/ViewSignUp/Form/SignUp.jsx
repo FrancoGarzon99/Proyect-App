@@ -48,10 +48,7 @@ const SignUp = () => {
             {/* Submit Button */}
             <ButtonSubmit />
           </form>
-          <p>{formData.usuario}</p>
-          <p>{formData.email}</p>
-          <p>{formData.password}</p>
-          <p>{formData.passwordConfirm}</p>
+        
         </Box>
       </Stack>
     </Center>
